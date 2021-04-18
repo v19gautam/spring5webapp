@@ -29,29 +29,35 @@ public class BootStrapData implements CommandLineRunner {
         Book book = new Book("Spring Framework", "123");
         Publisher publisher = new Publisher("VG", "Patna");
 
+        authorRepository.save(vishal);
+        bookRepository.save(book);
+        publisherRepository.save(publisher);
+
         vishal.getBooks().add(book);
         book.getAuthors().add(vishal);
         book.setPublisher(publisher);
         publisher.getBooks().add(book);
 
         authorRepository.save(vishal);
-        publisherRepository.save(publisher);
         bookRepository.save(book);
+        publisherRepository.save(publisher);
+
 
         Author sirsha = new Author("Sirsha", "Pattanayak");
         Book book2 = new Book("Phd in Management", "124");
+        authorRepository.save(sirsha);
+        bookRepository.save(book2);
 
         sirsha.getBooks().add(book2);
         book2.getAuthors().add(sirsha);
         book2.setPublisher(publisher);
         publisher.getBooks().add(book2);
-
         authorRepository.save(sirsha);
         bookRepository.save(book2);
         publisherRepository.save(publisher);
 
         System.out.println("Starter in BootStrap");
         System.out.println("Number of books: "+bookRepository.count());
-        System.out.println("Publishers: "+publisherRepository.count());
+        System.out.println("Publishers Books: "+publisher.getBooks().size());
     }
 }

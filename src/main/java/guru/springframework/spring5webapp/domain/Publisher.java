@@ -64,7 +64,6 @@ public class Publisher {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
-                ", books=" + books +
                 '}';
     }
 
